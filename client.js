@@ -7,6 +7,11 @@ const connect = function () {
     port: 50541,
   });
 
+  conn.on("connect", (connect) => {
+    console.log("Successfully connected to game server")
+    conn.write("Name: Rik");
+  });
+
   conn.on("data", (data) => {
     console.log(data);
   });
@@ -20,4 +25,4 @@ const connect = function () {
 console.log("Connecting ...");
 connect();
 
-module.exports = connect();
+module.exports = connect;
